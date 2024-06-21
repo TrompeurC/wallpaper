@@ -37,13 +37,14 @@ const setWallpaper = async () => {
   }
 }
 const handleDownloadImage = async () => {
-  const res = await window.api.checkHasDirectory(config.saveDirectory)
-  if (res) {
-    window.electron.ipcRenderer.send('downloadImage', imageRef.value!.src, config.saveDirectory)
-  } else {
-    message.warning('下载目录不存在，请重新设置！')
-    router.push({ name: 'setting' })
-  }
+  // const res = await window.api.checkHasDirectory(config.saveDirectory)
+  window.electron.ipcRenderer.send('downloadImage', imageRef.value!.src, config.saveDirectory)
+
+  // if (res) {
+  // } else {
+  //   message.warning('下载目录不存在，请重新设置！')
+  //   router.push({ name: 'setting' })
+  // }
 }
 
 </script>

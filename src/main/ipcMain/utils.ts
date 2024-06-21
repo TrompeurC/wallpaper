@@ -17,5 +17,5 @@ export const download = async ( url: string, toFile?: string) => {
   }
   const filepath = path.resolve(__dirname, '../../', 'wallpaper', filename)
   await streamPipeline(response.body, createWriteStream(toFile || filepath));
-  return filepath
+  return toFile || filepath
 }
